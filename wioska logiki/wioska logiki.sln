@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wioska logiki", "wioska logiki\wioska logiki.vcxproj", "{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Debug|x64.ActiveCfg = Debug|x64
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Debug|x64.Build.0 = Debug|x64
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Debug|x86.ActiveCfg = Debug|Win32
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Debug|x86.Build.0 = Debug|Win32
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Release|x64.ActiveCfg = Release|x64
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Release|x64.Build.0 = Release|x64
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Release|x86.ActiveCfg = Release|Win32
+		{D06EBD7C-89DF-4ED5-97C4-58B36D4AFA45}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F8562EB-0A37-42A9-8D7B-B8461CF834EE}
+	EndGlobalSection
+EndGlobal

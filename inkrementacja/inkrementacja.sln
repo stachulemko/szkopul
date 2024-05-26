@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "inkrementacja", "inkrementacja\inkrementacja.vcxproj", "{71EF24C5-17C5-43C6-ABB6-9559D735926E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Debug|x64.ActiveCfg = Debug|x64
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Debug|x64.Build.0 = Debug|x64
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Debug|x86.ActiveCfg = Debug|Win32
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Debug|x86.Build.0 = Debug|Win32
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Release|x64.ActiveCfg = Release|x64
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Release|x64.Build.0 = Release|x64
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Release|x86.ActiveCfg = Release|Win32
+		{71EF24C5-17C5-43C6-ABB6-9559D735926E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CC8BB24-9158-4755-B716-A4054BF3E918}
+	EndGlobalSection
+EndGlobal

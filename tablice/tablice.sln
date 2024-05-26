@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tablice", "tablice\tablice.vcxproj", "{8574DEED-2CCB-4E60-849E-C6684B02D61C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Debug|x64.ActiveCfg = Debug|x64
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Debug|x64.Build.0 = Debug|x64
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Debug|x86.ActiveCfg = Debug|Win32
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Debug|x86.Build.0 = Debug|Win32
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Release|x64.ActiveCfg = Release|x64
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Release|x64.Build.0 = Release|x64
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Release|x86.ActiveCfg = Release|Win32
+		{8574DEED-2CCB-4E60-849E-C6684B02D61C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C033E3C9-78AA-4420-AA8B-18089990313B}
+	EndGlobalSection
+EndGlobal
