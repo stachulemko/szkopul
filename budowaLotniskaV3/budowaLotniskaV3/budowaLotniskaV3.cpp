@@ -1,99 +1,210 @@
-﻿#include <vector>
+﻿// budowa_lotniska_12.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
+//
+
 #include <iostream>
+#include<vector>
+#include <string>
 using namespace std;
 
-int max(vector<vector<string>> lotniska) {
-    int max = lotniska[0][0].size();
-    for (int k = 1; k < lotniska[0].size(); k++) {
-        if (lotniska[0][k].size() > max) {
-            max = lotniska[0][k].size();
-        }
-    }
-    for (int i = 1; i < lotniska.size(); i++) {
-        //cout << "----------------" << endl;
-        for (int j = 0; j < lotniska[i].size(); j++) {
-            if (lotniska[i][j].size() > max) {
-                max = lotniska[i][j].size();
+int  maxY(vector<string>& dlugosci) {
+    int max = 0;
+
+    for (int i = 0; i < dlugosci.size(); i++) {
+        int licznik_tmp = 0;
+        for (int j = 0; j < dlugosci[i].size(); j++) {
+            if (dlugosci[j][i] != 'X') {
+                licznik_tmp++;
+            }
+            else {
+                if (licznik_tmp > max) {
+                    max = licznik_tmp;
+                }
+                licznik_tmp = 0;
             }
         }
 
+        if (licznik_tmp > max) {
+            max = licznik_tmp;
+        }
     }
     return max;
 }
-int program(vector<vector<string>> lotniska, int liczba) {
-
-    int licznik = 0;
-    for (int i = 0; i < lotniska.size(); i++) {
-        for (int j = 0; j < lotniska[i].size(); j++) {
-            if (lotniska[i][j].size() >= liczba) {
-                licznik++;
+int maxX(vector<string>& dlugosci) {
+    int max = 0;
+    for (int i = 0; i < dlugosci.size(); i++) {
+        int licznik_tmp = 0;
+        for (int j = 0; j < dlugosci[i].size(); j++) {
+            if (dlugosci[i][j] != 'X') {
+                licznik_tmp++;
+            }
+            else {
+                if (licznik_tmp > max) {
+                    max = licznik_tmp;
+                }
+                licznik_tmp = 0;
             }
         }
+
+        if (licznik_tmp > max) {
+            max = licznik_tmp;
+        }
     }
-    return licznik;
-
-
+    return max;
 }
-vector<string> Lotnisko(string ustawienie) {
-    vector<string> lotnisko;
+int maxKoncowe(int maxX, int maxY) {
+    if (maxX > maxY) {
+        return maxX;
+    }
+    else if (maxY > maxX) {
+        return maxY;
+    }
+}
+vector<vector<int>> znajdowanie_wspolrzednychY(vector<string>& dlugosci, int dlugoscPasa, int ilosc) {
+    vector<vector<int>> wspolrzedne;
+
+    for (int j = 0; j < dlugosci[0].size(); j++) {
+        int licznik_tmp = 0;
+        for (int i = 0; i < ilosc; i++) {
+            if (dlugosci[i][j] != 'X') {
+                licznik_tmp++;
+            }
+            else {
+                if (licznik_tmp == dlugoscPasa) {
+                    vector<int> wsp2 = { i - licznik_tmp, j, i, j };
+                    wspolrzedne.push_back(wsp2);
+                }
+                licznik_tmp = 0;
+            }
+        }
+        if (licznik_tmp == dlugoscPasa) {
+            vector<int> wsp2 = { ilosc - licznik_tmp, j, ilosc, j };
+            wspolrzedne.push_back(wsp2);
+        }
+    }
+    return wspolrzedne;
+    //  0 1 2 3 4 
+    // 1 
+    // 2 
+    // 3 
+    // 4 
+    // 5 
+    //
+    //
+    //
+}
+
+vector<vector<int>>znajdowanie_wspolrzednychX(vector<string>& dlugosci, int dlugoscPasa, int ilosc) {
+    vector<vector<int>> wspolrzedne;
+    int licznik_tmp = 0;
+    for (int i = 0; i < dlugosci.size(); i++) {
+
+        // analiza stringu 
+        for (int j = 0; j < ilosc; j++) {
+            if (dlugosci[i][j] != 'X') {
+                licznik_tmp++;
+                //cout<<"++"<<licznik_tmp << endl;
+            }
+            else {
+                //cout<<"end"<<licznik_tmp << endl;
+                if (licznik_tmp == dlugoscPasa) {
+                    vector<int>wsp2;
+                    wsp2.push_back(i);
+                    wsp2.push_back(j - licznik_tmp + 1);
+                    wsp2.push_back(licznik_tmp);
+                    wsp2.push_back(i);
+                    wsp2.push_back(j + 1);
+                    wspolrzedne.push_back(wsp2);
+                    //wsp2.clear();
+                }
+
+                licznik_tmp = 0;
+
+
+            }
+        }
+        if (licznik_tmp == dlugoscPasa) {
+            vector<int>wsp2;
+            wsp2.push_back(i);
+            wsp2.push_back(ilosc - licznik_tmp);
+            wsp2.push_back(licznik_tmp);
+            wsp2.push_back(i);
+            wsp2.push_back(ilosc);
+            wspolrzedne.push_back(wsp2);
+            //wsp2.clear();
+        }
+    }
+    return wspolrzedne;
+}
+
+void testY(vector<string>& dlugosci, int dlugoscPasa, int ilosc) {
+    vector<vector<int>> wspolrzedne;
+    int licznik_tmp = 0;
     string tmp = "";
-    for (int i = 0; i < ustawienie.size(); i++) {
-        if (ustawienie[i] == 'X') {
-            if (!tmp.empty()) {
-                lotnisko.push_back(tmp);
-                tmp.clear();
-            }
-        }
-        else {
-            tmp += ustawienie[i];
-        }
-    }
-    if (!tmp.empty()) {
-        lotnisko.push_back(tmp);
-    }
-    return lotnisko;
-}
+    for (int i = 0; i < dlugosci.size(); i++) {
 
-int main() {
-    vector<vector<int>> l;
-    vector<vector<string>> lotniska;
+        // analiza stringu 
+        cout << "-----------------" << endl;
+        for (int j = 0; j < ilosc; j++) {
+            cout << dlugosci[j][i] << endl;
+        }
+        cout << "-----------------" << endl;
+    }
+
+}
+vector<vector<int>>znajdowanie_komb(int liczba, int licznik_tmp, int j, int i) {
+    vector<vector<int>>komb_wieksze;
+    int k = 0;
+    while (liczba - k >= liczba) {
+        vector<int>wsp = { i,j - licznik_tmp,licznik_tmp,i,j - licznik_tmp + 3 };
+        komb_wieksze.push_back(wsp);
+        k++;
+        j = j + 1;
+    }
+    return komb_wieksze;
+
+
+}
+int main()
+{
+
     string ustawienie;
+    vector<string>dłuogsc;
     int minimalna_ilosc_pasow;
     int ilosc;
     cin >> ilosc >> minimalna_ilosc_pasow;
-
-    for (int i = 0; i < ilosc; i++) {
+    for (int i = 0; i < ilosc; i++)
+    {
         cin >> ustawienie;
-        lotniska.push_back(Lotnisko(ustawienie));
+        dłuogsc.push_back(ustawienie);
     }
-    vector<int>pom;
-    for (int i = 1 ; i <= max(lotniska)-1; i++)
+    //cout << maxX(dłuogsc);
+    //cout<<maxY(dłuogsc);
+    //cout << "-----------------" << endl;
+    for (int i = 0; i < znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc).size(); i++)
     {
-        if (program(lotniska, i) >= minimalna_ilosc_pasow) {
-            //pom.push_back(program(lotniska, i));
-            pom.push_back(i);
-        }
-        
-	}
-    //cout << "++++++++++++++++++++++" << endl;
-    /*
-    for (int i = 0; i < pom.size(); i++) {
-        cout << pom[i] << endl;
-    }
-    */
-    int max = pom[0];
-    for (int k = 1; k < pom.size(); k++)
-    {
-        if (pom[k] > max)
+        for (int j = 0; j < znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc)[i].size(); j++)
         {
-			max=pom[k];
-		}
-	}
-    cout<<max<<endl;
-    //cout << "++++++++++++++++++++++" << endl;
-    //cout<<program(lotniska,1)<<endl;
-    //cout<<countChar("*",'*')<<endl;
+            cout << znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc)[i][j] << " ";
+        }
+    }
+    cout << "------------------" << endl;
+    for (int i = 0; i < znajdowanie_wspolrzednychY(dłuogsc, 3, ilosc).size(); i++)
+    {
+        for (int j = 0; j < znajdowanie_wspolrzednychY(dłuogsc, 3, ilosc)[i].size(); j++)
+        {
+            cout << znajdowanie_wspolrzednychY(dłuogsc, 3, ilosc)[i][j] << " ";
+        }
+    }
+    cout << "------------------" << endl;
+    for (int i = 0; i < znajdowanie_komb(3, 5, 5, 0).size(); i++) {
+        for (int j = 0; j < znajdowanie_komb(3, 5, 5, 0)[i].size(); j++) {
+            cout << znajdowanie_komb[i][j] << endl;
+        }
 
 
-    return 0;
+
+    }
+    //cout << "------------------" << endl;
+    // * * * * 
 }
+

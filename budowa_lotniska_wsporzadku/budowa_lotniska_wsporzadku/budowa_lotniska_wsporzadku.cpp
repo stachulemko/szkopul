@@ -59,15 +59,6 @@ int maxKoncowe(int maxX, int maxY) {
         return maxY;
     }
 }
-void znajdowanie_komb(int dlugoscPasa, int j, int licznik_tmp, int i) {
-    int k = 0;
-    while (licznik_tmp - k >= dlugoscPasa) {
-        cout << i << j - licznik_tmp + k + 1 << licznik_tmp << i << dlugoscPasa + k << endl;
-        k++;
-
-    }
-
-}
 vector<vector<int>> znajdowanie_wspolrzednychY(vector<string>& dlugosci, int dlugoscPasa, int ilosc) {
     vector<vector<int>> wspolrzedne;
 
@@ -128,7 +119,7 @@ vector<vector<int>>znajdowanie_wspolrzednychX(vector<string>& dlugosci, int dlug
                     //wsp2.clear();
                 }
                 else if (licznik_tmp > dlugoscPasa) {
-                    
+
                     //cout << "wychodzi" <<licznik_tmp<< endl;
                 }
 
@@ -189,7 +180,7 @@ int main()
     //cout<<maxY(dłuogsc);
     //cout << "-----------------" << endl;
     //znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc);
-    
+
     for (int i = 0; i < znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc).size(); i++)
     {
         for (int j = 0; j < znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc)[i].size(); j++)
@@ -197,7 +188,7 @@ int main()
             cout << znajdowanie_wspolrzednychX(dłuogsc, 3, ilosc)[i][j] << " ";
         }
     }
-    
+
     cout << "------------------" << endl;
     for (int i = 0; i < znajdowanie_wspolrzednychY(dłuogsc, 3, ilosc).size(); i++)
     {
