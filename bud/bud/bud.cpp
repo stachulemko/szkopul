@@ -4,6 +4,19 @@
 #include <algorithm>
 using namespace std;
 //master
+void testowa() {
+    cout<<"testowa";
+}
+int  liczenie_kropek(vector<string>dlugosci) {
+    int licznik = 0;
+    for (int i = 0; i < dlugosci.size(); i++) {
+        if (dlugosci[i].find('.') != string::npos) {
+            licznik++;
+		}
+    }
+    return licznik;
+
+}
 int maxY(vector<string>& dlugosci) {
     int max = 0;
 
@@ -255,6 +268,11 @@ int main() {
     for (int i = 0; i < ilosc; i++) {
         cin >> ustawienie;
         dlugosci.push_back(ustawienie);
+    }
+    if (liczenie_kropek(dlugosci)<minimalna_ilosc_pasow) {
+        cout<< 0;
+		return 0;
+
     }
     if (minimalna_ilosc_pasow == 1) {
 		
