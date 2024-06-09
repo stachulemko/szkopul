@@ -30,6 +30,14 @@ std::vector<std::pair<int, int>> find_pairs(int n) {
     }
     return pairs;
 }
+std::vector<std::pair<int, int>> find_pairs_komb(int n) {
+    std::vector<std::pair<int, int>> pairs;
+    for (int x = 0; x <= n; ++x) {
+        int y = n - x;
+        pairs.push_back(std::make_pair(x, y));
+    }
+    return pairs;
+}
 
 int suma_wariacji(int n) {
     int suma = 0;
@@ -74,12 +82,43 @@ int minimalny_ciag(int szukana_liczba_komb) {
     return -1;
 
 }
+
+int minimalny_ciag_z_komb(int szukana_liczba_komb) {
+    //int n=suma
+    bool za_duzy = false;
+    bool za_maly = false;
+    int dl_ciagu = szukana_liczba_komb;
+    int liczba_komb = suma_wariacji(dl_ciagu);
+    while (liczba_komb != szukana_liczba_komb and (za_maly == false or za_duzy == false)) {
+        cout << "dl" << dl_ciagu << endl;
+        cout << "lk" << liczba_komb << endl;
+        if (liczba_komb > szukana_liczba_komb) {
+            za_duzy = true;
+            dl_ciagu--;
+            //cout<<dl_ciagu<<endl;
+        }
+        else {
+            za_maly = true;
+            dl_ciagu++;
+        }
+        if (liczba_komb == szukana_liczba_komb) {
+            return dl_ciagu + 1;
+        }
+        //cout<<liczba_komb<<" : "<<dl_ciagu<<" | "<<za_maly<<" : "<<za_duzy<<endl;
+        liczba_komb = suma_wariacji(dl_ciagu);
+    }
+    return -1;
+
+}
+
 void generowanie_par_ciagow(int n) {
-    std::vector<std::pair<int, int>> pary = find_pairs(n);
+    std::vector<std::pair<int, int>> pary = find_pairs_komb(n);
     for (int i = 0; i < pary.size(); i++) {
         cout << pary[i].first << " : " << pary[i].second << endl;
     }
 }
+
+
 int main() {
     int n;
     //std::cout << "Podaj wartość n: ";
